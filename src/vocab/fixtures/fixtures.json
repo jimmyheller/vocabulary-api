@@ -1,0 +1,156 @@
+[
+  {
+    "model": "vocab.Vocabulary",
+    "pk": 1,
+    "fields": {
+      "word": "demand",
+      "meaning" : "تقاضا"
+    }
+  },
+    {
+    "model": "vocab.Vocabulary",
+    "pk": 2,
+    "fields": {
+      "word": "significant",
+      "meaning" : "قابل توجه"
+    }
+  },
+    {
+    "model": "vocab.Vocabulary",
+    "pk": 3,
+    "fields": {
+      "word": "persuade",
+      "meaning" : "ترغیب کردن"
+    }
+  },
+    {
+    "model": "vocab.Vocabulary",
+    "pk": 4,
+    "fields": {
+      "word": "associate",
+      "meaning" : "وابسته"
+    }
+  },
+    {
+    "model": "vocab.Vocabulary",
+    "pk": 5,
+    "fields": {
+      "word": "concern",
+      "meaning" : "نگرانی"
+    }
+  },
+    {
+    "model": "vocab.Vocabulary",
+    "pk": 6,
+    "fields": {
+      "word": "anxiety",
+      "meaning" : "اضطراب"
+    }
+  },
+    {
+    "model": "vocab.Vocabulary",
+    "pk": 7,
+    "fields": {
+      "word": "obsess",
+      "meaning" : "وسواس"
+    }
+  },
+    {
+    "model": "vocab.Vocabulary",
+    "pk": 8,
+    "fields": {
+      "word": "desire",
+      "meaning" : "میل"
+    }
+  },  {
+    "model": "vocab.Vocabulary",
+    "pk": 9,
+    "fields": {
+      "word": "admire",
+      "meaning" : "تحسین"
+    }
+  },  {
+    "model": "vocab.Vocabulary",
+    "pk": 10,
+    "fields": {
+      "word": "conceal",
+      "meaning" : "پنهان کردن"
+    }
+  },  {
+    "model": "vocab.Vocabulary",
+    "pk": 11,
+    "fields": {
+      "word": "establish",
+      "meaning" : "تاسيس كردن"
+    }
+  },  {
+    "model": "vocab.Vocabulary",
+    "pk": 12,
+    "fields": {
+      "word": "suppose",
+      "meaning" : "فرض کنید"
+    }
+  },  {
+    "model": "vocab.Vocabulary",
+    "pk": 13,
+    "fields": {
+      "word": "regard",
+      "meaning" : "توجه"
+    }
+  },  {
+    "model": "vocab.Vocabulary",
+    "pk": 14,
+    "fields": {
+      "word": "indicate",
+      "meaning" : "نشان دادن"
+    }
+  },
+    {
+    "model": "vocab.Vocabulary",
+    "pk": 15,
+    "fields": {
+      "word": "consequence",
+      "meaning" : "نتیجه"
+    }
+  },
+    {
+    "model": "vocab.Vocabulary",
+    "pk": 16,
+    "fields": {
+      "word": "sophisticate",
+      "meaning" : "پیچیده"
+    }
+  },
+    {
+    "model": "vocab.Vocabulary",
+    "pk": 17,
+    "fields": {
+      "word": "evolve",
+      "meaning" : "تکامل"
+    }
+  },
+    {
+    "model": "vocab.Vocabulary",
+    "pk": 18,
+    "fields": {
+      "word": "precision",
+      "meaning" : "دقت"
+    }
+  },
+    {
+    "model": "vocab.Vocabulary",
+    "pk": 19,
+    "fields": {
+      "word": "proper",
+      "meaning" : "مناسب"
+    }
+  },
+    {
+    "model": "vocab.Vocabulary",
+    "pk": 20,
+    "fields": {
+      "word": "exaggerate",
+      "meaning" : "اغراق کردن"
+    }
+  }
+]
