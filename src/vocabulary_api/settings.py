@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
 	'vocab.apps.VocabConfig',
 	'user.apps.UserConfig',
+	'doc.apps.DocConfig',
 ]
 
 MIDDLEWARE = [

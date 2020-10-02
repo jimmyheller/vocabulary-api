@@ -1,0 +1,72 @@
+openapi: 3.0.1
+info:
+  title: Vocabulary API documentaion
+  version: 1.0
+#externalDocs:
+#  description: Find out more about DRF Tutorial.
+#  url: https://www.django-rest-framework.org/tutorial/1-serialization/
+tags:
+  - name: Vocab
+
+servers:
+  - url: 'http://127.0.0.1:8000'
+paths:
+  # vocab
+  api/v1/random/:
+    get:
+      tags:
+        - Vocab
+      summary: random word
+      responses:
+        '200':
+          description: "it returns random word."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/vocab/random'
+              example:
+                pk: 1
+                word: "demand"
+                meaning: "درخواست"
+        '400':
+          description: its return all error case with information
+
+# component section
+components:
+  schemas:
+    layer:
+      create:
+        required:
+          - land_id
+          - file
+          - type
+          - date
+        type: object
+        properties:
+          land_id:
+            type: string
+            description: ""
+          file:
+            type: file
+            description: ""
+          type:
+            type: file
+            description: ""
+          date:
+            type: file
+            description: ""
+  responses:
+    vocab:
+      random:
+        pk:
+          type: int
+          description: ""
+        word:
+          file:
+            type: string
+            description:
+        meaning:
+          type: string
+          description: ""
+
+
