@@ -2,9 +2,6 @@ openapi: 3.0.1
 info:
   title: Vocabulary API documentaion
   version: 1.0
-#externalDocs:
-#  description: Find out more about DRF Tutorial.
-#  url: https://www.django-rest-framework.org/tutorial/1-serialization/
 tags:
   - name: Vocab
 
@@ -33,28 +30,6 @@ paths:
 
 # component section
 components:
-  schemas:
-    layer:
-      create:
-        required:
-          - land_id
-          - file
-          - type
-          - date
-        type: object
-        properties:
-          land_id:
-            type: string
-            description: ""
-          file:
-            type: file
-            description: ""
-          type:
-            type: file
-            description: ""
-          date:
-            type: file
-            description: ""
   responses:
     vocab:
       random:
