@@ -28,6 +28,17 @@ $ python manage.py loaddata fixtures.json
 $ python manage.py runserver
 ```
 
+### To test
+to run test case about random-word :
+
+1- run project :
+```bash
+$ python manage.py runserver
+```
+2- in another terminal :
+```bash
+$ python manage.py test vocab
+```
 
 
 ### REST documentation
