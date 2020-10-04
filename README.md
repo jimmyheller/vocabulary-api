@@ -3,27 +3,39 @@ Python service to provide vocabulary api
 
 
 #### Run project :
-1 - clone project :
+1- clone project :
 ```bash
 $ git clone .......
 ```
-2 - navigate to project-path/src/ :
+2- navigate to project-path/src/ :
 ```bash
 $ cd project-path/src/
 ```
-3 - install requirements :
+3- install virtualenv :
+```bash
+$ pip install virtualenv
+```
+4- creating virtualenv :
+```bash
+$ virtualenv venv
+```
+5- active virtualenv :
+```bash
+$ source venv/bin/activate
+```
+6- install requirements :
 ```bash
 $ pip install -r requirements.txt
 ```
-4 - create database and migrate models :
+7- create database and migrate models :
 ```bash
 $ python manage.py migrate
 ```
-5 - insert prepared 20 words into database :
+8- insert prepared 20 words into database :
 ```bash
 $ python manage.py loaddata fixtures.json
 ```
-6 - run project :
+9- run project :
 ```bash
 $ python manage.py runserver
 ```
