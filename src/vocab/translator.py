@@ -50,5 +50,5 @@ def translator(word: str, source: str, destination: str) -> str:
 
 	# translator obj
 	translator = Translator()
-	return translator.translate(word, src=source, dest=destination)
+	return translator.translate(word, src=source, dest=destination).text
 
