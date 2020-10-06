@@ -22,5 +22,5 @@ class WordTranslator(TestCase):
 	def test_hello(self):
 		self.assertEqual(translator("hello", source='en', destination='fa'), 'سلام')
 
-	def test_admit_wrong(self):
-		self.assertEqual(translator("admit", source='en', destination='fa'), 'اقرار')
+	def test_admit(self):
+		self.assertEqual(translator("admit", source='en', destination='fa'), 'اقرار کردن')
