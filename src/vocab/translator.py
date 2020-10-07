@@ -1,7 +1,7 @@
 from googletrans import Translator
 
 
-def translator(word: str, source: str, destination: str) -> str:
+def translator(word: list, source: str, destination: str) -> tuple:
 	"""
 	translate every word between languages
 
@@ -49,6 +49,8 @@ def translator(word: str, source: str, destination: str) -> str:
 		raise ValueError("Enter correct format.")
 
 	# translator obj
-	translator = Translator()
+	translator_obj = Translator()
+	translations = translator_obj.translate(word, src=source, dest=destination)
 
-	return translator.translate(word, src=source, dest=destination).text
+	for word in translations:
+		yield (word.origin, word.text)

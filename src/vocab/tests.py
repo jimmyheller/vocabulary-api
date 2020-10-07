@@ -20,7 +20,13 @@ class RandomAPiTestCases(TestCase):
 class WordTranslator(TestCase):
 
 	def test_hello(self):
-		self.assertEqual(translator("hello", source='en', destination='fa'), 'سلام')
+		translated = list(translator(["hello", ], source='en', destination='fa'))
+		self.assertEqual(translated, [('hello', 'سلام')])
 
 	def test_admit(self):
-		self.assertEqual(translator("admit", source='en', destination='fa'), 'اقرار کردن')
+		translated = list(translator(["admit", ], source='en', destination='fa'))
+		self.assertEqual(translated, [('admit', 'اقرار کردن')])
+
+	def test_mix_words(self):
+		translated = list(translator(["admit", "hello", ], source='en', destination='fa'))
+		self.assertEqual(translated, [('admit', 'اقرار کردن'),('hello', 'سلام')])
