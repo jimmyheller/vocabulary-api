@@ -1,8 +1,25 @@
 # vocabulary-api
 Python service to provide vocabulary api
 
+#### Docker :
+1- clone project 
+```bash
+$ git clone .......
+```
+2- navigate to project root ( where the Docker file located):
+```bash
+$ cd project-path/
+```
+3- build image with this command ( it might take times ):
+```bash
+$ docker build -t vocabulary-api .
+```
+4- now run the image :
+```bash
+$ docker run -d -p 8000:8000 vocabulary-api
+```
 
-#### Run project :
+#### Run project manually:
 1- clone project :
 ```bash
 $ git clone .......
