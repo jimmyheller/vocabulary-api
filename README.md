@@ -10,7 +10,7 @@ $ git clone .......
 ```bash
 $ cd project-path/
 ```
-3- build image with this command ( it might take times ):
+3- build image with this command ( it might take time ):
 ```bash
 $ docker build -t vocabulary-api .
 ```
