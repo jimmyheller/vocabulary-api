@@ -1,10 +1,12 @@
+import re
+from collections import Counter
+from datetime import date
+
 from bs4 import BeautifulSoup
 import requests
-import re
-from .search_word import binary_search_word
-from collections import Counter
 from celery import shared_task
-from datetime import date
+
+from .search_word import binary_search_word
 
 
 @shared_task
@@ -57,7 +59,6 @@ def scrap_words_of_each_section(section_url: str, section_name: str):
 
 			# process through all <p> tags
 			for paragraph in range(len(context)):
-
 				# convert each tag <p> to string
 				context[paragraph] = str(context[paragraph])
 
