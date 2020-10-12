@@ -8,7 +8,7 @@ from datetime import date
 
 
 @shared_task
-def scrap_word_of_each_section(section_url: str, section_name: str):
+def scrap_words_of_each_section(section_url: str, section_name: str):
 	"""
 	grab all posts of given section and mine all words from each single post
 
@@ -20,39 +20,40 @@ def scrap_word_of_each_section(section_url: str, section_name: str):
 		5- validate each words
 		6- translate each words and add them into our database
 	"""
-	today = str(date.today())
 
-	# link for all posts in this section
+	today_date = str(date.today())
+
+	# array of all posts link in this section
 	posts = []
 
 	# contain all words from each posts in this section
 	final_words = []
 
 	# grab section html
-	html_main_section_page = requests.get(section_url).content
+	section_page_html = requests.get(section_url).content
 
 	# create soup obj from html
-	soup = BeautifulSoup(html_main_section_page, 'html.parser')
+	soup_obj = BeautifulSoup(section_page_html, 'html.parser')
 
 	# grab all post links in this section
-	for post_link in soup.find_all('a'):
+	for post_link in soup_obj.find_all('a'):
 		if re.match(r"[/[/0-9/][/0-9/][/0 -9/]+[/a-z/]+([a-z-])*(\/.*)", str(post_link.get('href'))):
 			posts.append("https://www.nytimes.com" + str(post_link.get('href')))
 
 	for post in posts:
-		r = "[0-9]+/[0-9]+/[0-9]+"
 
 		# if post date is equal to today date
-		if re.search(r, post).group(0).replace("/", "-") == today:
+		date_regex_pattern = "[0-9]+/[0-9]+/[0-9]+"
+		if re.search(date_regex_pattern, post).group(0).replace("/", "-") == today_date:
 
 			# grab post html
-			html_main_page = requests.get(str(post)).content
+			post_page_html = requests.get(str(post)).content
 
 			# create soup obj from html
-			soup = BeautifulSoup(html_main_page, 'html.parser')
+			soup_obj = BeautifulSoup(post_page_html, 'html.parser')
 
 			# grab all tag <p> contain sentences in post link
-			context = soup.find_all('p')
+			context = soup_obj.find_all('p')
 
 			# process through all <p> tags
 			for paragraph in range(len(context)):
@@ -95,18 +96,20 @@ def ny_times_scraper():
 
 	"""
 	# grab 'nytimes' site html
-	html_main_page = requests.get("https://www.nytimes.com/").content
+	main_page_html = requests.get("https://www.nytimes.com/").content
 
 	# create soup obj from html
-	soup = BeautifulSoup(html_main_page, 'html.parser')
+	soup_obj = BeautifulSoup(main_page_html, 'html.parser')
 
+	# array of section links
 	sections = []
+
 	# find all tag <a> contain sections in html
-	for section_link in soup.find_all('a'):
+	for section_link in soup_obj.find_all('a'):
 		if re.match(r"https:[//]+[a-z]*.[a-z]*.com[/]section[/][a-z]*", str(section_link.get('href'))):
 			sections.append(section_link.get('href'))
 
 	# grab all post in sections
 	for section in sections:
 		section_name = section.split("/")
-		scrap_word_of_each_section.delay(section_url=section, section_name=section_name[4])
+		scrap_words_of_each_section.delay(section_url=section, section_name=section_name[4])
