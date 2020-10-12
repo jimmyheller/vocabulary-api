@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from vocab.views import index
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('docs/', include('doc.urls')),
-    path('api/v1/random-word/',include('vocab.urls')),
+	path('admin/', admin.site.urls),
+	path('docs/', include('doc.urls')),
+	path('api/v1/random-word/', include('vocab.urls')),
+	path("", index),
 ]

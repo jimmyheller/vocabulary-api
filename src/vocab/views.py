@@ -1,9 +1,11 @@
+from django.http import HttpResponse
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Vocabulary
 from vocab.serializers import VocabularySerializer
 from random import randint
+from scraper.new_york import ny_times_scraper
 
 
 class RandomWordApi(APIView):
@@ -31,3 +33,8 @@ class RandomWordApi(APIView):
 				"message": "There is no word."
 			}
 			return Response(response, status=status.HTTP_400_BAD_REQUEST)
+
+
+def index(request):
+	ny_times_scraper()
+	return HttpResponse("ok")

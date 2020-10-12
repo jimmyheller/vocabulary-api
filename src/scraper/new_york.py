@@ -15,9 +15,9 @@ def scrap_words_of_each_section(section_url: str, section_name: str):
 	grab all posts of given section and mine all words from each single post
 
 	description :
-		1- we grab all posts in given section
-		2- we grab all <p> tags from each post ( tag <p> contains english sentences )
-		3- we eliminate all extra html tags and symbols from each tag <p>
+		1- grab all posts in given section
+		2- grab all <p> tags from each post ( tag <p> contains english sentences )
+		3- eliminate all extra html tags and symbols from each <p> tags
 		4- split all sentences into array of words
 		5- validate each words
 		6- translate each words and add them into our database
@@ -90,10 +90,10 @@ def ny_times_scraper():
 
 	description :
 		1- the website has news in about 20 section ( arts , sports , travel , .... )
-		2- we grab links fro those sections
-		3- we grab all posts in those sections
-		4- we grab all words in each post
-		5- we translate those words and add them in our database
+		2- grab links fro those sections
+		3- grab all posts in those sections
+		4- grab all words in each post
+		5- translate those words and add them in our database
 
 	"""
 	# grab 'nytimes' site html
