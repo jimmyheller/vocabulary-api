@@ -7,6 +7,8 @@ import requests
 from celery import shared_task
 
 from .search_word import binary_search_word
+from vocab.translator import translator
+from vocab.models import Vocabulary
 
 
 @shared_task
@@ -76,12 +78,17 @@ def scrap_words_of_each_section(section_url: str, section_name: str):
 	final_words = list(final_words)
 
 	if len(final_words) > 2:
-		with open(f"{section_name}.txt", "w+") as file:
-			for word in final_words:
-				if len(word) > 3 and binary_search_word(word) != None:
-					file.write(word.lower())
-					file.write("\n")
-			file.close()
+		for word in final_words:
+			if len(word) > 3 and binary_search_word(word) and word.islower():
+				try:
+					translation = list(translator(word=[word, ], source="en", destination="fa"))
+					action = Vocabulary()
+					action.word = translation[0][0]
+					action.meaning = translation[0][1]
+					action.tag = section_name
+					action.save()
+				except:
+					continue
 
 
 def ny_times_scraper():
