@@ -10,13 +10,9 @@ $ git clone .......
 ```bash
 $ cd project-path/
 ```
-3- build image with this command ( it might take times ):
+3- build image with this command ( it might take time ):
 ```bash
-$ docker build -t vocabulary-api .
-```
-4- now run the image :
-```bash
-$ docker run -d -p 8000:8000 vocabulary-api
+$ docker-compose up -d
 ```
 
 #### Run project manually:

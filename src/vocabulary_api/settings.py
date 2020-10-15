@@ -25,7 +25,7 @@ SECRET_KEY = '*02r(7f8ve-445*dn9r1lawo90@ln-2lz67g!fls5)qx+-s*c!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1","localhost"]
+ALLOWED_HOSTS = ["127.0.0.1","localhost","0.0.0.0"]
 
 # Application definition
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 	'vocab.apps.VocabConfig',
 	'user.apps.UserConfig',
 	'doc.apps.DocConfig',
+	'scraper.apps.ScraperConfig',
 ]
 
 MIDDLEWARE = [
@@ -120,3 +121,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'user.CustomUser'
+
+
+BROKER_URL = 'redis://redis:6379'
+CELERY_RESULT_BACKEND = 'redis://redis:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Tehran'
