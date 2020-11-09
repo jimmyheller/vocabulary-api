@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import RandomWordApi
+from .views import RandomWordApi, MultipleChoiceApi
 
 # routing
 urlpatterns = [
-	path('', RandomWordApi.as_view()),
+	path('single_word/', RandomWordApi.as_view()),
+	path('multiple_choice/', MultipleChoiceApi.as_view()),
 ]
