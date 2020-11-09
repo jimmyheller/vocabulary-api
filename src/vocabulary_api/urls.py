@@ -18,6 +18,7 @@ from django.urls import path, include
 from vocab.views import index
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
     path('docs/', include('doc.urls')),
     path('api/v1/random/', include('vocab.urls')),

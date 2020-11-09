@@ -8,7 +8,9 @@ from .models import Vocabulary
 from vocab.serializers import VocabularySerializer
 from random import randint
 from scraper.new_york import ny_times_scraper
+
 from random import randint
+
 
 
 class RandomWordApi(APIView):
@@ -37,7 +39,7 @@ class RandomWordApi(APIView):
             }
             return Response(response, status=status.HTTP_400_BAD_REQUEST)
 
-
+          
 class MultipleChoiceApi(APIView):
 
     @staticmethod
@@ -65,7 +67,6 @@ class MultipleChoiceApi(APIView):
 
         return Response(response, status=status.HTTP_400_BAD_REQUEST)
 
-
 def index(request):
-    ny_times_scraper()
-    return HttpResponse("ok")
+	ny_times_scraper()
+	return HttpResponse("ok")
