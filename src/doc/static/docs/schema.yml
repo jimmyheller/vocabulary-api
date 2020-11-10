@@ -9,7 +9,7 @@ servers:
   - url: 'http://127.0.0.1:8000'
 paths:
   # vocab
-  api/v1/random/:
+  api/v1/random/single_word/:
     get:
       tags:
         - Vocab
@@ -20,11 +20,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/responses/vocab/random'
+                $ref: '#/components/responses/vocab/random/single'
               example:
                 pk: 1
                 word: "demand"
                 meaning: "درخواست"
+        '400':
+          description: its return all error case with information
+  api/v1/random/multiple_choice/:
+    get:
+      tags:
+        - Vocab
+      summary: multiple choice
+      responses:
+        '200':
+          description: "it returns question with multiple choice"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/vocab/random/multi'
+              example:
+                question_word : "demand"
+                choice1: "درخواست"
+                choice2: "سلام کردن"
+                choice3: "ابراز کردن"
+                choice4: "کارمند"
         '400':
           description: its return all error case with information
 
@@ -33,15 +53,29 @@ components:
   responses:
     vocab:
       random:
-        pk:
-          type: int
-          description: ""
-        word:
-          file:
+        single:
+          pk:
+            type: int
+            description: ""
+          word:
+            file:
+              type: string
+              description:
+          meaning:
+            type: string
+            description: ""
+        multi:
+          question_word:
+          choice1:
             type: string
             description:
-        meaning:
-          type: string
-          description: ""
-
+          choice2:
+            type: string
+            description:
+          choice3:
+            type: string
+            description:
+          choice4:
+            type: string
+            description:
 
